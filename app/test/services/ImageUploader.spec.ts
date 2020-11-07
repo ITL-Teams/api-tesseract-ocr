@@ -26,10 +26,8 @@ describe('Services::ImageUploader', () => {
     expect(file(imgName)).to.not.exist
   })
 
-  it('invalid base64 image', () => { 
+  it('invalid base64 image', () => {
     const service = new ImageUploaderService('invalid')
-    expect(() => service.invoke()).to.throw(
-      'image base64 data error'
-    )
+    expect(() => service.invoke()).to.throw('image base64 data error')
   })
 })
