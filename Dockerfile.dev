@@ -2,6 +2,7 @@ FROM node:current-slim
 
 RUN apt update
 RUN apt install tesseract-ocr -y
+RUN apt install tesseract-ocr-spa
 RUN mkdir /home/app
 
 WORKDIR /home/app
