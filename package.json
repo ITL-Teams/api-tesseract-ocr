@@ -1,8 +1,7 @@
 {
-  "name": "node-lambda-crud",
+  "name": "attendance-api-tesseract-ocr",
   "version": "1.0.0",
-  "description": "CRUD Example using AWS::LAMBDA::FUNCTION & AWS::DYNAMODB:TABLE",
-  "main": "index.js",
+  "description": "Tesseract Express/Nodejs API",
   "scripts": {
     "test": "mocha --require ts-node/register --extensions ts app 'app/test/**/*.spec.ts'",
     "build": "tsc --build",
