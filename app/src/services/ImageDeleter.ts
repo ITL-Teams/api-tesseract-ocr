@@ -2,7 +2,7 @@ import { unlinkSync } from 'fs'
 import { IService } from './IService'
 
 export class ImageDeleterService implements IService<void> {
-  private path
+  private path: string
 
   constructor(imagePath: string) {
     this.path = imagePath

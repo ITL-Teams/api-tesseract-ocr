@@ -3,7 +3,7 @@ const base64 = require('base64-img')
 import { IService } from './IService'
 
 export class ImageUploaderService implements IService<string> {
-  private base64Img
+  private base64Img: string
 
   constructor(base64Img: string) {
     this.base64Img = base64Img
