@@ -10,7 +10,7 @@ enum PARSER_STATES {
   NEXT_NAME
 }
 
-export class ImageParserService implements IService<ParserOutput> {
+export class StudentNameParserService implements IService<ParserOutput> {
   private data: string
 
   constructor(data: string) {
