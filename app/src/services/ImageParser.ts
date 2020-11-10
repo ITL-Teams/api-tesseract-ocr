@@ -30,26 +30,27 @@ export class ImageParserService implements IService<ParserOutput> {
     let names: string[] = []
     let parserState: PARSER_STATES = PARSER_STATES.IN_NAME_READING
 
-    let actual_name:string = ''
+    let current_name:string = ''
     dataTokens.forEach(token => {
         parserState = this.parserState(token, parserState)
 
         if(parserState === PARSER_STATES.IGNORE)
           return
         if(parserState === PARSER_STATES.NEXT_NAME) {
-          names.push(actual_name)
-          actual_name = ''
+          current_name = current_name.substring(1)
+          names.push(current_name)
+          current_name = ''
           return
         }
         
-        actual_name = `${actual_name} ${token}`
+        current_name = `${current_name} ${token}`
     });
 
     return names
   }
 
   private parserState(token: string, actual_state: PARSER_STATES): PARSER_STATES {
-    if(token === '7')
+    if(token.includes('7'))
       return PARSER_STATES.IGNORE
     
     if(token === 'Presente')
