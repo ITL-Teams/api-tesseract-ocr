@@ -27,13 +27,13 @@ const INPUTS: TestInput[] = [
     Diego Valadez 7:08
     Presente`,
     expected: [
-      'Alfonso Godinez Godinez',      
-      'Sergio Alberto Fuentes Falcon',      
-      'Juan Daniel Torres Vera',      
-      'María del Carmen Reyes Rocha',      
-      'Angel Ricardo Ramírez de la Torre',      
-      'Diego Valadez'      
-      ]
+      'Alfonso Godinez Godinez',
+      'Sergio Alberto Fuentes Falcon',
+      'Juan Daniel Torres Vera',
+      'María del Carmen Reyes Rocha',
+      'Angel Ricardo Ramírez de la Torre',
+      'Diego Valadez'
+    ]
   },
   {
     value: `CRISTOFER GERARDO TOSTADO LOPEZ 7:10
@@ -67,8 +67,8 @@ const INPUTS: TestInput[] = [
 // TEST COMPONENT
 describe('Services::StudentNameParserService', () => {
   let test_index = 1
-  for(const CURRENT_INPUT  of INPUTS) {
-    it(`Parse test #${ test_index++ }`, () => {
+  for (const CURRENT_INPUT of INPUTS) {
+    it(`Parse test #${test_index++}`, () => {
       const service = new StudentNameParserService(CURRENT_INPUT.value)
       const service_output = service.invoke()
       expect(service_output.names).to.be.eql(CURRENT_INPUT.expected)
