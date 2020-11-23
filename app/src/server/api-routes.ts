@@ -4,7 +4,27 @@ import { ImageToTextService } from '../services/ImageToText'
 import { StudentNameParserService } from '../services/StudentNameParserService'
 import { ImageDeleterService } from '../services/ImageDeleter'
 import { validateRequest } from './utils'
+import { CurrentDate } from '../services/CurrentDate'
 export const router = Router()
+
+router.get('/attendance-list', async (request, response) => {
+  try {
+    const dateService = new CurrentDate()
+
+    response.json({
+      success: {
+        date: dateService.invoke(),
+        attendance: []
+      }
+    })
+  } catch (error) {
+    response.json({
+      error: {
+        message: new String(error).toString()
+      }
+    })
+  }
+})
 
 router.post('/take-attendance', async (request, response) => {
   const image = request.body.img
@@ -24,12 +44,10 @@ router.post('/take-attendance', async (request, response) => {
     const imageText = await imageToTextService.invoke()
 
     const parserOutput = new StudentNameParserService(imageText).invoke()
-    new ImageDeleterService(`./${imageName}`).invoke()
+    new ImageDeleterService(imageName).invoke()
 
     response.json({
-      success: {
-        names: parserOutput.names
-      }
+      success: true
     })
   } catch (error) {
     response.json({
