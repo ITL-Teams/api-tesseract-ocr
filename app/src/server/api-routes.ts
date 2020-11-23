@@ -4,8 +4,11 @@ import { ImageToTextService } from '../services/ImageToText'
 import { StudentNameParserService } from '../services/StudentNameParserService'
 import { ImageDeleterService } from '../services/ImageDeleter'
 import { validateRequest } from './utils'
+import { StudentAttendance } from '../domain/StudentAttendance'
 import { CurrentDate } from '../services/CurrentDate'
 export const router = Router()
+
+const attendance = new StudentAttendance()
 
 router.get('/attendance-list', async (request, response) => {
   try {
@@ -14,7 +17,7 @@ router.get('/attendance-list', async (request, response) => {
     response.json({
       success: {
         date: dateService.invoke(),
-        attendance: []
+        attendance: attendance.getAttendanceList()
       }
     })
   } catch (error) {
