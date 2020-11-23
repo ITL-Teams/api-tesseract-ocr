@@ -10,6 +10,22 @@ export const router = Router()
 
 const attendance = new StudentAttendance()
 
+router.delete('/clean-student-list', async (request, response) => {
+  try {
+    attendance.cleanStudentList()
+
+    response.json({
+      success: true
+    })
+  } catch (error) {
+    response.json({
+      error: {
+        message: new String(error).toString()
+      }
+    })
+  }
+})
+
 router.get('/attendance-list', async (request, response) => {
   try {
     const dateService = new CurrentDate()
