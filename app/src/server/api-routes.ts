@@ -4,6 +4,7 @@ import { ImageToTextService } from '../services/ImageToText'
 import { StudentNameParserService } from '../services/StudentNameParserService'
 import { ImageDeleterService } from '../services/ImageDeleter'
 import { UpdateStudentList } from '../services/UpdateStudentList'
+import { TakeAttendance } from '../services/TakeAttendance'
 import { validateRequest } from './utils'
 import { StudentAttendance } from '../domain/StudentAttendance'
 import { CurrentDate } from '../services/CurrentDate'
@@ -93,6 +94,9 @@ router.post('/take-attendance', async (request, response) => {
 
     const parserOutput = new StudentNameParserService(imageText).invoke()
     new ImageDeleterService(imageName).invoke()
+
+    const attendanceService = new TakeAttendance(attendance, parserOutput.names)
+    attendanceService.invoke()
 
     response.json({
       success: true
