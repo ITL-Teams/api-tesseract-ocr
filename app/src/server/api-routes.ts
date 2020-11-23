@@ -3,6 +3,7 @@ import { ImageUploaderService } from '../services/ImageUploader'
 import { ImageToTextService } from '../services/ImageToText'
 import { StudentNameParserService } from '../services/StudentNameParserService'
 import { ImageDeleterService } from '../services/ImageDeleter'
+import { UpdateStudentList } from '../services/UpdateStudentList'
 import { validateRequest } from './utils'
 import { StudentAttendance } from '../domain/StudentAttendance'
 import { CurrentDate } from '../services/CurrentDate'
@@ -35,6 +36,34 @@ router.get('/attendance-list', async (request, response) => {
         date: dateService.invoke(),
         attendance: attendance.getAttendanceList()
       }
+    })
+  } catch (error) {
+    response.json({
+      error: {
+        message: new String(error).toString()
+      }
+    })
+  }
+})
+
+router.put('/update-student-list', async (request, response) => {
+  try {
+    validateRequest([
+      {
+        value_name: 'img',
+        value: request.body.students,
+        expected: 'object'
+      }
+    ])
+
+    const updateListService = new UpdateStudentList(
+      attendance,
+      request.body.students
+    )
+    updateListService.invoke()
+
+    response.json({
+      success: true
     })
   } catch (error) {
     response.json({
