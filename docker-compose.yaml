@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+  # docker run -p 80:3000 -v $working_directory/app/src:/home/app/src -tid --name node-tesseract-server node-tesseract:dev
+  node-tesseract-server:
+    image: node-tesseract:dev
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    container_name: node-tesseract-server
+    restart: unless-stopped
+    ports:
+      - '80:3000'
+    volumes:
+      - ./app/src:/home/app/src

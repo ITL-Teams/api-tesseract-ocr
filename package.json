@@ -6,8 +6,6 @@
     "test": "mocha --require ts-node/register --extensions ts app 'app/test/**/*.spec.ts'",
     "build": "tsc --build",
     "format": "npx prettier app/**/* --write",
-    "docker:build": "docker rmi -f node-tesseract:dev && docker build -t node-tesseract:dev --file Dockerfile.dev .",
-    "docker:serve": "sh scripts/serve.sh",
     "docker:container:dev": "nodemon --legacy-watch --watch \"src/**\" --ext \"ts\" --exec \"ts-node src/index.ts\""
   },
   "author": {
