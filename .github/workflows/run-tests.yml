@@ -8,15 +8,37 @@ env:
 
 jobs:
   run-test:
-    name: Test Application
+    name: Test Application (Unit/Integration)
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-    - name: Install Dependencies
-      run: npm install
-    - name: Run Unit Tests and Integration Tests
-      run: npm test
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Unit Tests and Integration Tests
+        run: npm test
+
+  run-e2e:
+    name: Test Application (end-to-end)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install Dependencies
+        run: npm install
+      - name: Build docker compose
+        run: docker-compose build
+      - name: Run docker compose
+        run: docker-compose up -d
+      - name: Sleep for 10 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '10s'
+      - name: Run end-to-end tests
+        run: npm run e2e
