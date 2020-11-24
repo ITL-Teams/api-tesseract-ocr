@@ -51,7 +51,7 @@ router.put('/update-student-list', async (request, response) => {
   try {
     validateRequest([
       {
-        value_name: 'img',
+        value_name: 'students',
         value: request.body.students,
         expected: 'object'
       }

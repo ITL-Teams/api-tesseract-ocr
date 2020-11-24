@@ -4,6 +4,7 @@
   "description": "Tesseract Express/Nodejs API",
   "scripts": {
     "test": "mocha --require ts-node/register --extensions ts app 'app/test/**/*.spec.ts'",
+    "e2e": "mocha --require ts-node/register --extensions ts app 'app/e2e/index.spec.ts'",
     "build": "tsc --build",
     "format": "npx prettier app/**/* --write",
     "docker:container:dev": "nodemon --legacy-watch --watch \"src/**\" --ext \"ts\" --exec \"ts-node src/index.ts\""
@@ -29,6 +30,7 @@
     "husky": "^4.3.0",
     "lint-staged": "^10.5.1",
     "mocha": "^8.2.1",
+    "node-fetch": "^2.6.1",
     "nodemon": "^2.0.6",
     "prettier": "^2.1.2",
     "ts-node": "^9.0.0",
