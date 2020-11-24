@@ -1,0 +1,92 @@
+### Update Student List
+PUT http://localhost/api/update-student-list
+Content-Type: application/json
+
+{
+  "students": [
+    {
+      "realName": "María José Campos Granados",
+      "meetName": "María José Campos Granados"
+    },
+    {
+      "realName": "Ana Elizabeth Landeros",
+      "meetName": "Ana Elizabeth Landeros"
+    },
+    {
+      "realName": "Sergio Andres Pineda Bedolla",
+      "meetName": "Sergio Andres Pineda Bedolla"
+    },
+    {
+      "realName": "Angel Ricardo Ramírez de la Torre",
+      "meetName": "Angel Ricardo Ramírez de la Torre"
+    },
+    {
+      "realName": "Sergio Alberto Fuentes Falcon",
+      "meetName": "Sergio Alberto Fuentes Falcon"
+    },
+    {
+      "realName": "Sandra Paulina Argote Romo",
+      "meetName": "Sandra Paulina Argote Romo"
+    },
+    {
+      "realName": "José Armando Rodríguez Valdivia",
+      "meetName": "José Armando Rodríguez Valdivia"
+    },
+    {
+      "realName": "Alfonso Godinez Godinez",
+      "meetName": "Alfonso Godinez Godinez"
+    },
+    {
+      "realName": "Isidro Emmanuel Vasquez Cortes",
+      "meetName": "Isidro Vásquez"
+    },
+    {
+      "realName": "Diego Valadez Olmos",
+      "meetName": "Diego Valadez"
+    },
+    {
+      "realName": "Cecilia Ponce Mora",
+      "meetName": "Cecilia Ponce"
+    },
+    {
+      "realName": "Leslie Karen Davila Gallegos",
+      "meetName": "Leslie Karen Davila Gallegos"
+    },
+    {
+      "realName": "María del Carmen Reyes Rocha",
+      "meetName": "María del Carmen Reyes Rocha"
+    },
+    {
+      "realName": "Faviola Cruz Duran Ortega",
+      "meetName": "Faviola Cruz Duran Ortega"
+    },
+    {
+      "realName": "Edgar Ulises Gonzalez Alcaraz",
+      "meetName": "edgar ulises gonzalez alcaraz"
+    },
+    {
+      "realName": "David Trinidad Becerra Lozano",
+      "meetName": "David Trinidad Becerra Lozano"
+    },
+    {
+      "realName": "Cristofer Gerardo Tostado Lopez",
+      "meetName": "CRISTOFER GERARDO TOSTADO LOPEZ"
+    },
+    {
+      "realName": "Sergio Adrian Medina Aviles",
+      "meetName": "Sergio Adrian Medina Aviles"
+    },
+    {
+      "realName": "María de los Ángeles Gaona Ramírez",
+      "meetName": "Angi Gaona"
+    },
+    {
+      "realName": "Juan Daniel Torres Vera",
+      "meetName": "Juan Daniel Torres Vera"
+    },
+    {
+      "realName": "Diego Alejandro López Puente",
+      "meetName": "Diego Lopez"
+    }
+  ]
+}

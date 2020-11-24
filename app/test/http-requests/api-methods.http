@@ -1,0 +1,30 @@
+### Get Attendance List
+GET http://localhost/api/attendance-list
+
+### Clean Attendance List
+DELETE http://localhost/api/clean-student-list
+
+### Update Student List
+PUT http://localhost/api/update-student-list
+Content-Type: application/json
+
+{
+  "students": [
+    {
+      "realName": "María José Campos Granados",
+      "meetName": "María José Campos Granados"
+    },
+    {
+      "realName": "Ana Elizabeth Landeros",
+      "meetName": "Ana Elizabeth Landeros"
+    },
+    {
+      "realName": "Angel Ricardo Ramírez de la Torre",
+      "meetName": "Angel Ricardo Ramírez de la Torre"
+    },
+    {
+      "realName": "Cristofer Gerardo Tostado Lopez",
+      "meetName": "CRISTOFER GERARDO TOSTADO LOPEZ"
+    }
+  ]
+}
