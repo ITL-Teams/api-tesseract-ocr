@@ -101,7 +101,7 @@ To run the scripts do: `npm run <script-name>`
 }
 ```
 
-#### Update Student/Attendance list
+#### Take student attendance
 
 | URL     | /api/take-attendance           |
 | ------- | ------------------------------ |
